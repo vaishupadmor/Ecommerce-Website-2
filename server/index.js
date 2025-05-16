@@ -9,9 +9,9 @@ import { responder } from './utils/utils.js';
 dotenv.config();
 
 import {postPayments} from "./controllers/payments.js"
-import {postProducts,getProducts} from "./controllers/product.js"
-import {postOrders,putOrders,getOrderById,getOrdersByUserId} from "./controllers/order.js"
-import { postSignup ,postLogin} from './controllers/user.js';
+import {postProducts,getProducts} from "./controllers/products.js"
+import {postOrders,putOrders,getOrderById,getOrdersByUserId} from "./controllers/orders.js"
+import { postSignup ,postLogin} from './controllers/users.js';
 import {jwtVerifyMiddleware,checkRoleMiddleware} from "./middlewares/auth.js"
 const app =express();
 
