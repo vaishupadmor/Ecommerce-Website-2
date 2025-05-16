@@ -17,7 +17,7 @@ const app =express();
 
 app.use(
     cors({
-      origin: "https://ecommerce-website-2-1.onrender.com",
+      origin: "https://frontend-ieks.onrender.com",
       credentials: true,
       allowedHeaders: ["Content-Type", "Authorization"],
        methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
