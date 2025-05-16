@@ -8,16 +8,17 @@ import session from "express-session";
 import { responder } from './utils/utils.js';
 dotenv.config();
 
-import {postPayments} from "./controllers/Payment.js"
-import {postProducts,getProducts} from "./controllers/Product.js"
-import {postOrders,putOrders,getOrderById,getOrdersByUserId} from "./controllers/Order.js"
-import { postSignup ,postLogin} from './controllers/User.js';
+import {postPayments} from "./controllers/payment.js"
+import {postProducts,getProducts} from "./controllers/product.js"
+import {postOrders,putOrders,getOrderById,getOrdersByUserId} from "./controllers/order.js"
+import { postSignup ,postLogin} from './controllers/user.js';
 import {jwtVerifyMiddleware,checkRoleMiddleware} from "./middlewares/auth.js"
 const app =express();
 
 app.use(
     cors({
-      origin: "https://frontend-ieks.onrender.com",
+      //origin: "https://frontend-ieks.onrender.com",
+      origin:"http://localhost:3000",
       credentials: true,
       allowedHeaders: ["Content-Type", "Authorization"],
        methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
@@ -31,7 +32,9 @@ app.use(express.json());
   
   app.use(
     session({
-      secret: "test secret",
+      secret: "test_secret",
+      resave:false,
+      saveUninitialized:true,
       cookie: { maxAge: 1000 * 60 * 60, httpOnly: false, secure: false },
     })
   );
