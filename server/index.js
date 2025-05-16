@@ -8,7 +8,7 @@ import session from "express-session";
 import { responder } from './utils/utils.js';
 dotenv.config();
 
-import {postPayments} from "./controllers/payment.js"
+import {postPayments} from "./controllers/payments.js"
 import {postProducts,getProducts} from "./controllers/product.js"
 import {postOrders,putOrders,getOrderById,getOrdersByUserId} from "./controllers/order.js"
 import { postSignup ,postLogin} from './controllers/user.js';
@@ -17,7 +17,7 @@ const app =express();
 
 app.use(
     cors({
-      //origin: "https://frontend-ieks.onrender.com",
+      
       origin:"http://localhost:3000",
       credentials: true,
       allowedHeaders: ["Content-Type", "Authorization"],
