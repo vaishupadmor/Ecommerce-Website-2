@@ -8,29 +8,19 @@ import session from "express-session";
 import { responder } from './utils/utils.js';
 dotenv.config();
 
-import {postPayments} from "./controllers/payments.js"
-import {postProducts,getProducts} from "./controllers/products.js"
-import {postOrders,putOrders,getOrderById,getOrdersByUserId} from "./controllers/orders.js"
-import { postSignup ,postLogin} from './controllers/users.js';
-import {jwtVerifyMiddleware,checkRoleMiddleware} from "./middlewares/auth.js"
 const app =express();
-
+app.use(express.json());
 app.use(
     cors({
       
-      origin:"http://localhost:3000",
+      origin:["http://localhost:3000","https://ecommerce-website-2-client.onrender.com/"],
       credentials: true,
       allowedHeaders: ["Content-Type", "Authorization"],
        methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
     })
   );
-app.use(express.json());
 
-
-
-
-  
-  app.use(
+   app.use(
     session({
       secret: "test_secret",
       resave:false,
@@ -38,6 +28,21 @@ app.use(express.json());
       cookie: { maxAge: 1000 * 60 * 60, httpOnly: false, secure: false },
     })
   );
+import {postPayments} from "./controllers/payments.js"
+import {postProducts,getProducts} from "./controllers/products.js"
+import {postOrders,putOrders,getOrderById,getOrdersByUserId} from "./controllers/orders.js"
+import { postSignup ,postLogin} from './controllers/users.js';
+import {jwtVerifyMiddleware,checkRoleMiddleware} from "./middlewares/auth.js"
+
+
+
+
+
+
+
+
+  
+ 
 //Connect to MongoDb
 const connectDB=async()=>{
     const conn=await mongoose.connect(process.env.MONGO_URI);
