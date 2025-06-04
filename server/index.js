@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(
     cors({
       
-      origin:["http://localhost:3000","https://ecommerce-website-2-client.onrender.com/"],
+      origin:["http://localhost:5000","https://ecommerce-website-2-client.onrender.com/"],
       credentials: true,
       allowedHeaders: ["Content-Type", "Authorization"],
        methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
