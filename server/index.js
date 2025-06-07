@@ -43,7 +43,7 @@ import {jwtVerifyMiddleware,checkRoleMiddleware} from "./middlewares/auth.js"
 
   
  
-//Connect to MongoDb
+//Connect to mongo database
 const connectDB=async()=>{
     const conn=await mongoose.connect(process.env.MONGO_URI);
     if(conn)
