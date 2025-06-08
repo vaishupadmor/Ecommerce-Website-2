@@ -52,7 +52,7 @@ const connectDB=async()=>{
     }
 };
 
-app.get("/health",jwtVerifyMiddleware, (req, res) => {
+app.get("/health", (req, res) => {
  
   return responder(res, true, "Server is running");
  
