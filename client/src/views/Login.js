@@ -31,7 +31,7 @@ function Login() {
     
       })
       setTimeout(()=>{
-        window.location.href="/dashboard";
+        window.location.href="/dashboards";
       },2000)
       
    } catch(err){
