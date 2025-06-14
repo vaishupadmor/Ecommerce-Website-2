@@ -31,7 +31,7 @@ function Login() {
     
       })
       setTimeout(()=>{
-        window.location.href="/dashboards";
+        window.location.href="/dash";
       },2000)
       
    } catch(err){
@@ -49,7 +49,7 @@ function Login() {
     if (currentUser) {
       toast.success("You are already logged in. Redirecting to dashboard...");
       setTimeout(() => {
-        window.location.href = "/dashboard";
+        window.location.href = "/dash";
       }, 3000);
     }
   
