@@ -5,6 +5,8 @@ import HomeImg from "./Ecommerce-page-bro.png";
 import cartIcon from "../assets/cart.png";
 import { Link } from 'react-router-dom';
 import { api } from "../utils/common.js";
+import Navbar from '../components/Navbar.js';
+import Footer from '../components/Footer.js';
 
 function Home() {
   const [products, setProducts] = useState([]);
@@ -37,7 +39,9 @@ function Home() {
   }, [search]);  // Reload products when search changes
 
   return (
+
     <div>
+     <Navbar />
       <img
         src={HomeImg}
         className='h-24 object-cover object-center block mx-auto'
@@ -73,7 +77,7 @@ function Home() {
           className='fixed top-10 right-10 w-16 h-16 cursor-pointer bg-white rounded-full shadow-lg'
         />
       </Link>
-
+<Footer/>
       <Toaster />
     </div>
   );

@@ -9,6 +9,8 @@ import NotFound from './views/NotFound.js';
 import Dashboard from './views/Dashboard.js';
 import UserOrders from './views/UserOrders.js'
 import Cart from "./views/Cart.js"
+import About from "./views/AboutUs.js"
+import ContactUs from './views/ContactUs.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -36,6 +38,14 @@ const router=createBrowserRouter([
 {
   path:"/signup",
   element:<Signup/>
+},
+{
+  path:"/about",
+  element:<About/>
+},
+{
+  path:"/contactus",
+  element:<ContactUs/>
 },
 {
   path:"/*",

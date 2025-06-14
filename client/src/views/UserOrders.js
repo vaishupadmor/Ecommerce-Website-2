@@ -4,9 +4,11 @@ import toast from "react-hot-toast";
 
 
 import { getCurrentUser,getReadableTimestamp ,api} from "../utils/common";
-import OrderCard from "../components/OrderCard";
+import OrderCard from "../components/OrderCard.js";
 import HomeIcon from "../assets/Home.png"
 import { Link } from "react-router-dom";
+import Navbar from "../components/Navbar.js";
+import Footer from "../components/Footer.js";
 
 
 
@@ -33,23 +35,25 @@ function UserOrders() {
   };
 
   useEffect(() => {
-    const user = getCurrentUser();
+  const currentUser = getCurrentUser();
+  console.log("Current user:", currentUser); // Add this
+  if (currentUser && currentUser._id) {
+    setUser(currentUser);
+  } else {
+    toast.error("Please login to access this page");
+    setTimeout(() => {
+      window.location.href = "/login";
+    }, 2000);
+  }
+}, []);
 
-    if (user) {
-      setUser(user);
-    } else {
-      toast.error("Please login to access this page");
-      setTimeout(() => {
-        window.location.href = "/login";
-      }, 2000);
-    }
-  }, []);
 
-  useEffect(()=>{
-    if(user){
-      loadUserOrders()
-    }
-  },[user])
+ useEffect(() => {
+  if (user && user._id) {
+    loadUserOrders();
+  }
+}, [user]);
+
 
    
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -124,8 +128,10 @@ function UserOrders() {
 
   return (
     <div >
+      <Navbar/>
+      
       <Link to="/">
-      <img src={HomeIcon} alt="Home" className="absolute top-2 right-10 w-16 h-16 cursor-pointer bg-white rounded-full shadow-lg" />
+      <img src={HomeIcon} alt="Home" className="absolute top-20 right-10 w-16 h-16 cursor-pointer bg-white rounded-full shadow-lg" />
       </Link>
       <h1>My Orders</h1>
       <p>
@@ -150,7 +156,7 @@ function UserOrders() {
           setSelectedOrder({});
         }}
       />
-     
+     <Footer/>
     </div>
   );
 }
