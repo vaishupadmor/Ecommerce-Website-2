@@ -3,8 +3,8 @@ This is an FullStack Ecommerce-Webite ,I have used all the major Languages to bu
 
 
 
-<img src="./client/front.png" height=150 width=250>
-<img src="./client/login.png" height=150 width=250>
+<img src="./client/front.png" height=250 width=500>
+<img src="./client/login.png" height=250 width=500>
 </br>
 <a href="https://ecommerce-website-2-client.onrender.com"><strong><u>Go to Live Website</u></strong></a>
 
