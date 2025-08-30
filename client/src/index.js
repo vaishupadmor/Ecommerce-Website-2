@@ -11,6 +11,7 @@ import UserOrders from './views/UserOrders.js'
 import Cart from "./views/Cart.js"
 import About from "./views/AboutUs.js"
 import ContactUs from './views/ContactUs.js';
+import CheckoutPage from './views/CheckoutPage.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -46,6 +47,10 @@ const router=createBrowserRouter([
 {
   path:"/contactus",
   element:<ContactUs/>
+},
+{
+  path:"/payment",
+  element:<CheckoutPage/>
 },
 {
   path:"/*",
